@@ -45,7 +45,7 @@ height: 100%;
 
 /* Styles for description body */
 .description-body {
-margin-bottom: 2em;
+margin-bottom: 0;
 }
 
 /* Styles for action buttons */
