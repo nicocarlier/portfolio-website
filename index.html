@@ -53,7 +53,6 @@
 					<header class="major">
 						<h2>Featured Projects</h2>
 					</header>
-					<!-- <p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p> -->
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
 							<span class="image fit"><img src="images/project-photo-1.png" alt="" /></span>
@@ -126,13 +125,6 @@
 			</section>
 
 
-
-
-
-
-
-
-
 			<!-- Four -->
 			<section id="four" class="main style2">
 				<div class="container">
@@ -156,16 +148,23 @@
 								A full-stack Airbnb clone built with React/Redux frontend and a Rails backend. It features the power of JBuilder for eager loading, reducing the number of database queries. Additionally, users will find full CRUD features, user auth, and Google Maps API, with a PostgreSQL database. This application was built with a quick turnaround of only 10 days!
 								<br>
 								<br><strong>Code snippet</strong>
+								<br> Feature: Toggling the selected Google maps marker. Snipped demonstrates abstraction through helper functions.
 								<pre>
 									<code>
-	i = 0;
-	while (!deck.isInOrder()) {
-	print 'Iteration ' + i;
-	deck.shuffle();
-	i++;
+const toggleColor = (marker) => { 
+	const oldSelectedListing = selectedListingRef.current;
+	const oldMarker = markers.current[oldSelectedListing];
+	if (oldSelectedListing !== null) {
+		unselectMarker(oldMarker);
+		closeInfoWindow(oldMarker)
 	}
-	
-	print 'It took ' + i + ' iterations to sort the deck.';
+	if (oldSelectedListing !== marker.id) {
+		selectMarker(marker);
+		showListingInfoWindow(marker);
+	} else {
+		setSelectedListing(null);
+	}
+}
 									</code>
 								</pre>
 							</p>
@@ -192,16 +191,32 @@
 							An all-in-one fitness and nutrition tracking app with an interface that's easy to pick up. Built by a team of 3 engineers on the MERN stack. It leverages the Spoonacular API for users to quickly look up meals, ingredients, Chart.js to visually see user project, and a fun workout logger in the name of continuous improvement.
 							<br>
 							<br><strong>Code snippet</strong>
+							Feature: If a user refreshes the page during a workout, the stopwatch should not restart. This required using the sessionStorage to temporarily store the time, to then reinstate the stopwatch and state variable.
 							<pre>
 								<code>
-i = 0;
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+useEffect(()=>{
+	const currentWorkout = JSON.parse(sessionStorage.getItem("currentWorkout"));
+	if (currentWorkout){
+		sessionStorage.setItem("currentWorkout", JSON.stringify(currentWorkout));
+		const workoutMeta = JSON.parse(sessionStorage.getItem("currentWorkoutMETA"));
+		setWorkoutStarted(workoutMeta.active)
+		setResumeTime(parseInt(workoutMeta.time,10))
+		setExerciseList([...currentWorkout.sets])
+	} else {
+		resetWorkout()
+	}
+}, [])
 
-print 'It took ' + i + ' iterations to sort the deck.';
+const Timer = ({isActive, setIsActive, resumeTime, setResumeTime}) => {
+	const [time, setTime] = useState(resumeTime || 0);
+	useEffect(() => {
+		if (resumeTime !== null) {
+			setTime(resumeTime);
+			setResumeTime(null);
+			setIsActive(true);
+		}
+	}, [resumeTime]);
+}
 								</code>
 							</pre>
 						</p>
@@ -227,16 +242,31 @@ print 'It took ' + i + ' iterations to sort the deck.';
 							A simple single page transcription tool which allows users to transform a Youtube video to text through the Youtube API and GPT3.5 Turbo API.
 							<br>
 							<br><strong>Code snippet</strong>
+							Feature: The Youtube transcription API was only compatiple with python, so a custom fetching route served as middleware between the python and javascript.
 							<pre>
 								<code>
-i = 0;
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+app.get('/extract/:videoId', (req, res) => {
+	const spawn = require('child_process').spawn;
+	const videoId = req.params.videoId;
+	const pythonProcess = spawn('python3', ['./transcripter.py', videoId]);
+	let outputData = '';
 
-print 'It took ' + i + ' iterations to sort the deck.';
+	pythonProcess.stdout.on('data', function(data) {
+		outputData += data.toString();
+	});
+	
+	pythonProcess.on('close', (code) => {
+		if(code !== 0) {
+		console.error("Python process exited with code " + code);
+		} else {
+		res.send(outputData);
+		}
+	});
+	
+	pythonProcess.stderr.on('data', (data) => {
+		console.error("Error:", data.toString());
+	});
+});
 								</code>
 							</pre>
 						</p>
@@ -584,8 +614,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</section>
 		
 
-		<!-- Footer -->
-			<section id="footer">
+		<-- Footer -->
+			<!-- <section id="footer">
 				<ul class="icons">
 					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
