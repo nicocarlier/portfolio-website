@@ -1,43 +1,64 @@
-
-
-// ! JAVASCRIPT FOR PROJECT 1
-
-// Open Live Site in a new tab...
-document.getElementById('liveSiteButtonOne').addEventListener('click', function() {
-	window.open('https://fairbnb-36c07c3f3067.herokuapp.com/', '_blank');
-});
+// Play video and hide image
+function playVideo(projectName) {
+	const video = document.querySelector(`video[data-project="${projectName}"]`);
+	const image = document.querySelector(`img[data-project="${projectName}"]`);
   
-// Open Code Repo in a new tab...
-document.getElementById('seeCodeButtonOne').addEventListener('click', function() {
-window.open('https://github.com/ncar285/Fairbnb', '_blank');
-});
+	image.style.display = 'none';
+	video.style.display = 'block';
+	video.play();
+  }
+  
+  // Handle video end
+  function handleVideoEnd(projectName) {
+	const video = document.querySelector(`video[data-project="${projectName}"]`);
+	const image = document.querySelector(`img[data-project="${projectName}"]`);
+  
+	video.style.display = 'none';
+	image.style.display = 'block';
+  }
 
-// Play the demo video...
-
-// Get elements
-let videoOne = document.getElementById('projectVideoOne');
-let imageOne = document.getElementById('projectImageOne');
-let playButtonOne = document.getElementById('playDemoButtonOne');
-
-// Initially hide the video
-videoOne.style.display = 'none';
-
-// Play video on button click
-playButtonOne.addEventListener('click', function() {
-  // Hide image, show video
-  imageOne.style.display = 'none';
-  videoOne.style.display = 'block';
-
-  // Play video
-  videoOne.play();
-});
-
-// Hide video and show image when video ends
-videoOne.addEventListener('ended', function() {
-	// Hide video, show image
-	videoOne.style.display = 'none';
-	imageOne.style.display = 'block';
-});
+  const urlMap = {
+	Fairbnb: {
+	  liveSite: 'https://fairbnb-36c07c3f3067.herokuapp.com/',
+	  seeCode: 'https://github.com/ncar285/Fairbnb'
+	},
+	Tubify: {
+	  liveSite: 'https://ncar285.github.io/Tubify/',
+	  seeCode: 'https://github.com/ncar285/Tubify'
+	},
+	RepsNRecipes: {
+	  liveSite: 'https://reps-n-recipes-d98cf03910d0.herokuapp.com/',
+	  seeCode: 'https://github.com/stefanlazarevic97/reps-n-recipes'
+	}
+  };
+  
+  // Event listener for buttons
+  document.querySelectorAll('.action-buttons button').forEach(button => {
+	const projectName = button.getAttribute('data-project');
+	const action = button.getAttribute('data-action');
+  
+	button.addEventListener('click', () => {
+		// debugger
+		console.log(button)
+		console.log(projectName)
+		console.log(action)
+	  const url = urlMap[projectName][action];
+	  switch (action) {
+		case 'liveSite':
+		case 'seeCode':
+		  window.open(url, '_blank');
+		  break;
+		case 'playDemo':
+		  playVideo(projectName);
+		  break;
+	  }
+	});
+  
+	if (action === 'playDemo') {
+	  const video = document.querySelector(`video[data-project="${projectName}"]`);
+	  video.addEventListener('ended', () => handleVideoEnd(projectName));
+	}
+  });
 
 
 (function($) {

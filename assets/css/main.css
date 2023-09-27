@@ -4,7 +4,8 @@
 
 /* ! some of the new styles from me */
 
-#project-one, #project-two, #project-three {
+/* Common styles for all projects */
+#Fairbnb, #Tubify, #RepsNRecipes {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -12,57 +13,62 @@
 	margin: 6rem 0;
 	min-height: 8em;
 	border-radius: 4px;
-  }
-  
-  /* Additional style for the first project */
-  #project-one { 
-	margin-top: 0;
-  }
-  
-  /* Styles for project description */
-  .project-description {
-	width: 70vw;
-	position: relative;
-	padding: 1rem;
-  }
-  
-  /* Styles for media container */
-  .media-container {
-	height: 50vh;
-	border-radius: 4px;
-  }
+}
 
-  .media-container img,
-  .media-container video  {
-	/* width: 100%; */
-	height: 100%;
-  }
-  
-  /* Styles for description body */
-  .description-body {
-	margin-bottom: 4em;
-  }
-  
-  /* Styles for action buttons */
-  .action-buttons {
-	display: flex;
-	justify-content: space-evenly;
-	position: absolute;
-	width: calc(100% - 2rem);
-	left: 1rem;
-	bottom: 1rem;
-	height: 2rem;
-	z-index: 10;
-  }
-  
-  /* Styles for gif actions */
-  .gif-action>* {
-	margin-right: 4px;
-  }
-  
-  .gif-action:hover {
-	cursor: pointer;
-  }
+/* Additional style for the first project */
+#Fairbnb { 
+margin-top: 0;
+}
+
+/* Styles for project description */
+.project-description {
+width: 70vw;
+/* position: relative; */
+padding: 1rem;
+}
+
+/* hide the videos initially */
+.media-container video {
+	display: none;
+}
+
+/* Styles for media container */
+.media-container {
+height: 50vh;
+border-radius: 4px;
+}
+
+/* Ensure media takes full height */
+.media-container img,
+.media-container video {
+height: 100%;
+}
+
+/* Styles for description body */
+.description-body {
+margin-bottom: 2em;
+}
+
+/* Styles for action buttons */
+.action-buttons {
+display: flex;
+justify-content: space-evenly;
+/* position: absolute; */
+width: calc(100% - 2rem);
+/* left: 1rem;
+bottom: 1rem; */
+/* height: 2rem; */
+z-index: 10;
+}
+
+/* Styles for action elements */
+.action-buttons button {
+margin-right: 4px;
+}
+
+.action-buttons button:hover {
+cursor: pointer;
+}
 
 /* ! ends here */
 /*
