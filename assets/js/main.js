@@ -6,59 +6,59 @@ function playVideo(projectName) {
 	image.style.display = 'none';
 	video.style.display = 'block';
 	video.play();
-  }
+}
   
-  // Handle video end
-  function handleVideoEnd(projectName) {
+// Handle video end
+function handleVideoEnd(projectName) {
 	const video = document.querySelector(`video[data-project="${projectName}"]`);
 	const image = document.querySelector(`img[data-project="${projectName}"]`);
-  
+
 	video.style.display = 'none';
 	image.style.display = 'block';
-  }
+}
 
-  const urlMap = {
+const urlMap = {
 	Fairbnb: {
-	  liveSite: 'https://fairbnb-36c07c3f3067.herokuapp.com/',
-	  seeCode: 'https://github.com/ncar285/Fairbnb'
+		liveSite: 'https://fairbnb-36c07c3f3067.herokuapp.com/',
+		seeCode: 'https://github.com/ncar285/Fairbnb'
 	},
 	Tubify: {
-	  liveSite: 'https://ncar285.github.io/Tubify/',
-	  seeCode: 'https://github.com/ncar285/Tubify'
+		liveSite: 'https://ncar285.github.io/Tubify/',
+		seeCode: 'https://github.com/ncar285/Tubify'
 	},
 	RepsNRecipes: {
-	  liveSite: 'https://reps-n-recipes-d98cf03910d0.herokuapp.com/',
-	  seeCode: 'https://github.com/stefanlazarevic97/reps-n-recipes'
+		liveSite: 'https://reps-n-recipes-d98cf03910d0.herokuapp.com/',
+		seeCode: 'https://github.com/stefanlazarevic97/reps-n-recipes'
 	}
-  };
+};
   
-  // Event listener for buttons
-  document.querySelectorAll('.action-buttons button').forEach(button => {
+// Event listener for buttons and image
+document.querySelectorAll('.action-buttons button, img.project-media').forEach(button => {
 	const projectName = button.getAttribute('data-project');
 	const action = button.getAttribute('data-action');
-  
+
 	button.addEventListener('click', () => {
 		// debugger
-		console.log(button)
-		console.log(projectName)
-		console.log(action)
-	  const url = urlMap[projectName][action];
-	  switch (action) {
+		// console.log(button)
+		// console.log(projectName)
+		// console.log(action)
+		const url = urlMap[projectName][action];
+		switch (action) {
 		case 'liveSite':
 		case 'seeCode':
-		  window.open(url, '_blank');
-		  break;
+			window.open(url, '_blank');
+			break;
 		case 'playDemo':
-		  playVideo(projectName);
-		  break;
-	  }
+			playVideo(projectName);
+			break;
+		}
 	});
   
 	if (action === 'playDemo') {
 	  const video = document.querySelector(`video[data-project="${projectName}"]`);
 	  video.addEventListener('ended', () => handleVideoEnd(projectName));
 	}
-  });
+});
 
 
 (function($) {

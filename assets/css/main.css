@@ -33,7 +33,11 @@ border-radius: 4px;
 /* Ensure media takes full height */
 .media-container img,
 .media-container video {
-height: 100%;
+	height: 100%;
+}
+
+.media-container img:hover {
+	cursor: pointer;
 }
 
 /* Styles for description body */
@@ -46,7 +50,6 @@ margin-bottom: 0;
 display: flex;
 justify-content: space-evenly;
 width: 100%;
-/* margin: 1rem 0; */
 margin-bottom: 1.5rem;
 }
 
@@ -67,7 +70,6 @@ margin-bottom: 1.5rem;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: stretch;
-	/* align-items: center; */
 }
 
 .image.fit.skill {
