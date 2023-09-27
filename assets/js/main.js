@@ -1,8 +1,30 @@
-/*
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
+
+// Get elements
+var video = document.getElementById('demoVideo');
+var image = document.getElementById('demoImage');
+var playButton = document.getElementById('playButton');
+
+// Initially hide the video
+video.style.display = 'none';
+
+// Play video on button click
+playButton.addEventListener('click', function() {
+  // Hide image, show video
+  image.style.display = 'none';
+  video.style.display = 'block';
+
+  // Play video
+  video.play();
+});
+
+// Hide video and show image when video ends
+video.addEventListener('ended', function() {
+	// Hide video, show image
+	video.style.display = 'none';
+	image.style.display = 'block';
+});
+
 
 (function($) {
 

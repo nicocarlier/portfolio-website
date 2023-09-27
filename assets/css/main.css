@@ -1,6 +1,92 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
 
+
+/* ! some of the new styles from me */
+
+#project-one, 
+#project-two, 
+#project-three {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	margin: 6rem 0;
+	/* border: 1px solid #ffffff; */
+	min-height: 8em;
+	border-radius: 4px;
+}
+
+#project-one { 
+	margin-top: 0;
+}
+
+#project-one>div, 
+#project-two>div, 
+#project-three>div {
+	/* width: 50%; */
+
+}
+
+/* ! project gif / image stuff */
+
+.project-description {
+	width: 70vw;
+	position: relative;
+	padding: 1rem;
+	/* background-color: orange; */
+}
+
+.demo-gif {
+	/* display: flex; */
+	/* position: relative; */
+	/* width: 100%; */
+	height: 50vh;
+	border-radius: 4px;
+	box-shadow: #ffffff 4px;
+}
+
+.description-body {
+	/* height: calc(100% - 4rem) */
+	margin: 0 0 4em 0;
+}
+
+.gif-buttons { 
+	display: flex;
+	justify-content: space-evenly;
+	position: absolute;
+	/* margin: 2rem 0; */
+	/* width: 100%; */
+	width: calc(100% - 2rem);
+	left: 1rem;
+	bottom: 1rem;
+	height: 2rem;
+	z-index: 10;
+}
+
+/* .gif-action a {
+	all: unset;
+} */
+/* 
+.gif-action {
+	border-radius: 4px;
+	min-width: 5rem;
+	height: 100%;
+	padding: 0 0.5rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+} */
+
+.gif-action>* {
+	margin-right: 4px;
+}
+
+.gif-action:hover {
+	cursor: pointer;
+}
+
+/* ! ends here */
 /*
 	Photon by HTML5 UP
 	html5up.net | @ajlkn
@@ -3358,9 +3444,6 @@ input, select, textarea {
 			#one .col-6.col-12-medium.imp-medium {
 				display: none;
 			}
-			/* #one .col-6.col-12-medium.imp-medium img {
-				width: 50%;
-			} */
 
 		/* Two */
 
