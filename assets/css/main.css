@@ -3354,6 +3354,14 @@ input, select, textarea {
 				text-align: center;
 			}
 
+
+			#one .col-6.col-12-medium.imp-medium {
+				display: none;
+			}
+			/* #one .col-6.col-12-medium.imp-medium img {
+				width: 50%;
+			} */
+
 		/* Two */
 
 			#two {
