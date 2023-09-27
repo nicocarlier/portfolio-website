@@ -1,28 +1,42 @@
 
 
+// ! JAVASCRIPT FOR PROJECT 1
+
+// Open Live Site in a new tab...
+document.getElementById('liveSiteButtonOne').addEventListener('click', function() {
+	window.open('https://fairbnb-36c07c3f3067.herokuapp.com/', '_blank');
+});
+  
+// Open Code Repo in a new tab...
+document.getElementById('seeCodeButtonOne').addEventListener('click', function() {
+window.open('https://github.com/ncar285/Fairbnb', '_blank');
+});
+
+// Play the demo video...
+
 // Get elements
-var video = document.getElementById('demoVideo');
-var image = document.getElementById('demoImage');
-var playButton = document.getElementById('playButton');
+let videoOne = document.getElementById('projectVideoOne');
+let imageOne = document.getElementById('projectImageOne');
+let playButtonOne = document.getElementById('playDemoButtonOne');
 
 // Initially hide the video
-video.style.display = 'none';
+videoOne.style.display = 'none';
 
 // Play video on button click
-playButton.addEventListener('click', function() {
+playButtonOne.addEventListener('click', function() {
   // Hide image, show video
-  image.style.display = 'none';
-  video.style.display = 'block';
+  imageOne.style.display = 'none';
+  videoOne.style.display = 'block';
 
   // Play video
-  video.play();
+  videoOne.play();
 });
 
 // Hide video and show image when video ends
-video.addEventListener('ended', function() {
+videoOne.addEventListener('ended', function() {
 	// Hide video, show image
-	video.style.display = 'none';
-	image.style.display = 'block';
+	videoOne.style.display = 'none';
+	imageOne.style.display = 'block';
 });
 
 
