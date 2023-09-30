@@ -53,6 +53,10 @@ width: 100%;
 margin-bottom: 1.5rem;
 }
 
+#first-resume-download {
+	margin: 1rem 0;
+}
+
 /* ! skills section */
 
 .row.gtr-150.skills {
