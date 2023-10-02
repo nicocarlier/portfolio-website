@@ -38,10 +38,6 @@ document.querySelectorAll('.action-buttons button, img.project-media').forEach(b
 	const action = button.getAttribute('data-action');
 
 	button.addEventListener('click', () => {
-		// debugger
-		// console.log(button)
-		// console.log(projectName)
-		// console.log(action)
 		const url = urlMap[projectName][action];
 		switch (action) {
 		case 'liveSite':
