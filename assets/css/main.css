@@ -57,9 +57,51 @@ margin-bottom: 1.5rem;
 	margin: 1rem 0;
 }
 
+/* profile pic */
+@media screen and (max-width: 980px) {
+
+	#one .col-6.col-12-medium.imp-medium {
+		width: 100%;
+		height: 40%;
+	}
+	#one .col-6.col-12-medium > p {
+		text-align: start;
+	}
+	#one.container {
+		display: flex;
+		flex-direction: column;
+	}
+	#one .image.fit,
+	#one .below-image-bullets {
+		margin: 1.5em;
+	}
+	#one .below-image-bullets>p {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	#one .below-image-bullets * {
+		margin: 0;
+	}
+	#one .image.fit img{
+		height: 100%;
+		object-fit: contain;
+	}
+	#one .sticky-profile-image-contaner{
+		display: flex;
+		max-height: 20em;
+	}
+}
+@media screen and (max-width: 600px) {
+	#one .below-image-bullets {
+		display: none;
+	}
+}
+
+
 /* ! skills section */
 
-
+/* skills resize on phone */
 @media screen and (max-width: 700px) {
     .row.gtr-150.skills {
         display: flex;
@@ -401,23 +443,6 @@ input, select, textarea {
 			width: 100%;
 		}
 
-		@media screen and (max-width: 980px) {
-
-			.container {
-				max-width: 100% !important;
-				width: 100% !important;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			.container {
-				max-width: calc(100% - 3em);
-			}
-
-		}
-
 /* Row */
 
 	.row {
@@ -635,6 +660,8 @@ input, select, textarea {
 
 			.row.gtr-uniform {
 				margin-top: -2em;
+
+
 			}
 
 				.row.gtr-uniform > * {
@@ -3446,6 +3473,8 @@ input, select, textarea {
 
 /* Medium */
 
+
+
 	@media screen and (max-width: 980px) {
 
 		/* List */
@@ -3484,10 +3513,6 @@ input, select, textarea {
 				text-align: center;
 			}
 
-
-			#one .col-6.col-12-medium.imp-medium {
-				display: none;
-			}
 
 		/* Two */
 
