@@ -15,6 +15,52 @@ code {
     white-space: pre-wrap;  /* Wraps content within code tag */
 }
 
+/* hide excess description */
+
+#Fairbnb, #RepsNRecipes, #Tubify {
+	margin-bottom: 8em;
+	position: relative;
+}
+
+.project-description.collapsed {
+    max-height: 20vh;
+    overflow: hidden;
+}
+
+.project-description.expanded {
+    max-height: none;
+    overflow: visible;
+}
+
+.reveal-more {
+    position: absolute;
+    bottom: -4em;
+    background-color: rgba(100,100,100,0.5);
+	width: 100vw;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reveal-more:hover {
+	cursor: pointer;
+}
+
+#four .container {
+	padding-bottom: 0;
+}
+#four {
+	padding-bottom: 0;
+}
+
+
+/* big screens */
+/* @media screen and (max-width: 1500px) {
+	body .container {
+		width: 70%;
+	}
+} */
+
 
 /* fixing the weird container alignmeent stuff */
 
@@ -26,7 +72,7 @@ code {
 body .container {
 	margin: 0;
 	padding: 4em;
-	width: 100%;
+	/* width: 100%; */
 }
 
 
@@ -35,6 +81,8 @@ body .container {
 		padding: 0;
 	}
 }
+
+
 /* @media screen and (max-width: 600px) {
 	body .container {
 		padding: 1em;
@@ -742,7 +790,7 @@ input, select, textarea {
 		}
 
 			.row > * {
-				/* padding: 0 0 0 2em; */
+				padding: 0 0 0 2em;
 			}
 
 			.row.gtr-uniform {

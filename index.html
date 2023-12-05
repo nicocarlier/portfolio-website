@@ -155,7 +155,7 @@
 								<video data-project="Fairbnb" class="project-media" src="./images/fairbnb-demo1.mp4"></video>
 							</div>
 						</div>
-						<div class="project-description">
+						<div class="project-description collapsed Fairbnb">
 							<p class="description-body">
 								<strong>Overview</strong> <br>
 								A full-stack Airbnb clone built with React/Redux frontend and a Rails backend. It features the power of JBuilder for eager loading, reducing the number of database queries. Additionally, users will find full CRUD features, user auth, and Google Maps API, with a PostgreSQL database.
@@ -182,6 +182,8 @@ const toggleColor = (marker) => {
 								</pre>
 							</p>
 						</div>
+
+						<div class="reveal-more" data-project="Fairbnb"><strong>Show More</strong></div>
 						
 					  </div>
 					
@@ -201,7 +203,7 @@ const toggleColor = (marker) => {
 								<video data-project="RepsNRecipes" class="project-media" src="./images/repsNrecipes-demo.mp4"></video>
 							</div>
 						</div>
-						<div class="project-description">
+						<div class="project-description collapsed RepsNRecipes">
 						<p class="description-body">
 							<strong>Overview</strong> <br>
 							An all-in-one fitness and nutrition tracking app with an interface that's easy to pick up. Built by a team of 3 engineers on the MERN stack. It leverages the Spoonacular API for users to quickly look up meals, ingredients, Chart.js to visually see user project, and a fun workout logger in the name of continuous improvement.
@@ -238,6 +240,9 @@ const Timer = ({isActive, setIsActive, resumeTime, setResumeTime}) => {
 						</p>
 						
 						</div>
+
+
+						<div class="reveal-more" data-project="RepsNRecipes"><strong>Show More</strong></div>
 					</div>
 
 					<!-- Tubify Project -->
@@ -255,14 +260,14 @@ const Timer = ({isActive, setIsActive, resumeTime, setResumeTime}) => {
 								<video data-project="Tubify" class="project-media" src="./images/tubify-demo.mp4"></video>
 							</div>
 						</div>
-						<div class="project-description">
-						<p class="description-body">
-							<strong>Overview</strong> <br>
-							A simple single page transcription tool which allows users to transform a Youtube video to text through the Youtube API and GPT3.5 Turbo API.
-							<br>
-							<br><strong>Code snippet</strong>
-							<br> The Youtube transcription API was only compatiple with python, so a custom fetching route served as middleware between the python and javascript.
-							<pre>
+						<div class="project-description collapsed Tubify">
+							<p class="description-body">
+								<strong>Overview</strong> <br>
+								A simple single page transcription tool which allows users to transform a Youtube video to text through the Youtube API and GPT3.5 Turbo API.
+								<br>
+								<br><strong>Code snippet</strong>
+								<br> The Youtube transcription API was only compatiple with python, so a custom fetching route served as middleware between the python and javascript.
+								<pre>
 								<code>
 app.get('/extract/:videoId', (req, res) => {
 	const spawn = require('child_process').spawn;
@@ -291,7 +296,11 @@ app.get('/extract/:videoId', (req, res) => {
 						</p>
 						
 						</div>
+
+						<div class="reveal-more" data-project="Tubify"><strong>Show More</strong></div>
+					
 					</div>
+
 
 				</div>
 			</section>

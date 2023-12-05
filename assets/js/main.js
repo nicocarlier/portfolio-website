@@ -103,6 +103,25 @@ document.querySelectorAll('.action-buttons button, img.project-media').forEach(b
 });
 
 
+document.querySelectorAll('.reveal-more').forEach(button => {
+    button.addEventListener('click', () => {
+        const projectName = button.getAttribute('data-project');
+        const projectDescription = document.querySelector(`.project-description.${projectName}`);
+
+        if (projectDescription.classList.contains('collapsed')) {
+            projectDescription.classList.remove('collapsed');
+            projectDescription.classList.add('expanded');
+            button.innerHTML = '<strong>Show Less</strong>'; // Optional: Update button text
+        } else {
+            projectDescription.classList.remove('expanded');
+            projectDescription.classList.add('collapsed');
+            button.innerHTML = '<strong>Show More</strong>'; // Optional: Update button text
+        }
+    });
+});
+
+
+
 (function($) {
 
 	var	$window = $(window),
