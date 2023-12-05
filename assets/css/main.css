@@ -23,6 +23,9 @@
 .media-container video {
 	display: none;
 }
+.media-container video:hover {
+	cursor: pointer;
+}
 
 /* Styles for media container */
 .media-container {
@@ -65,15 +68,15 @@
 
 /* Styles for description body */
 .description-body {
-margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* Styles for action buttons */
 .action-buttons {
-display: flex;
-justify-content: space-between;
-width: 100%;
-margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 1.5rem;
 }
 
 #first-resume-download {

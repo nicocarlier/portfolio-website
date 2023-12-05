@@ -18,6 +18,8 @@ function playVideo(projectName) {
     } else if (video.msRequestFullscreen) { /* IE/Edge */
         video.msRequestFullscreen();
     }
+
+	video.addEventListener('click', () => handleVideoPlayPause(projectName));
 }
   
 // Handle video end
@@ -26,17 +28,39 @@ function handleVideoEnd(projectName) {
 	const image = document.querySelector(`img[data-project="${projectName}"].project-media`);
 	const overlay = document.querySelector(`img[data-project="${projectName}"].project-media-overlay`);
 
+    // Check if the video is in fullscreen mode
+    if (document.fullscreenElement === video) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen(); // Standard method
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
 
 	video.style.display = 'none';
 	image.style.display = 'block';
 	overlay.style.display = 'block';
 }
 
-function handleVideoPause(projectName) {
+function handleVideoPlayPause(projectName) {
 	const video = document.querySelector(`video[data-project="${projectName}"]`);
+	const overlay = document.querySelector(`img[data-project="${projectName}"].project-media-overlay`);
+	
+	// Check if the video is in fullscreen mode
+	if (document.fullscreenElement === video) return;
+	
+	
 	if (video && !video.paused) {
-        video.pause(); // Pause the video
-    }
+        video.pause(); 
+		overlay.style.display = 'block';
+	} else if (video.paused){
+		video.play();
+		overlay.style.display = 'none';
+    } 
 }
 
 const urlMap = {
@@ -74,7 +98,6 @@ document.querySelectorAll('.action-buttons button, img.project-media').forEach(b
   
 	if (action === 'playDemo') {
 	  const video = document.querySelector(`video[data-project="${projectName}"]`);
-	  video.addEventListener('click', () => handleVideoPause(projectName));
 	  video.addEventListener('ended', () => handleVideoEnd(projectName));
 	}
 });
