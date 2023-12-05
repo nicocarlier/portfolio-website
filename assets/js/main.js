@@ -8,6 +8,16 @@ function playVideo(projectName) {
 	overlay.style.display = 'none';
 	video.style.display = 'block';
 	video.play();
+
+	if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) { /* Firefox */
+        video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE/Edge */
+        video.msRequestFullscreen();
+    }
 }
   
 // Handle video end
@@ -20,6 +30,13 @@ function handleVideoEnd(projectName) {
 	video.style.display = 'none';
 	image.style.display = 'block';
 	overlay.style.display = 'block';
+}
+
+function handleVideoPause(projectName) {
+	const video = document.querySelector(`video[data-project="${projectName}"]`);
+	if (video && !video.paused) {
+        video.pause(); // Pause the video
+    }
 }
 
 const urlMap = {
@@ -57,6 +74,7 @@ document.querySelectorAll('.action-buttons button, img.project-media').forEach(b
   
 	if (action === 'playDemo') {
 	  const video = document.querySelector(`video[data-project="${projectName}"]`);
+	  video.addEventListener('click', () => handleVideoPause(projectName));
 	  video.addEventListener('ended', () => handleVideoEnd(projectName));
 	}
 });
