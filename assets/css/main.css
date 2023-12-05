@@ -22,21 +22,41 @@
 /* hide the videos initially */
 .media-container video {
 	display: none;
-	/* height: 100%;
-	width: auto; */
 }
 
 /* Styles for media container */
 .media-container {
-/* height: 50vh; */
-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.project-photo-container {
+	position: relative;
+	padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.project-media {
+    width: 100%; /* Ensures that the image takes full width of the container */
+    height: auto; /* Maintains the aspect ratio */
+	box-sizing: border-box;
+}
+
+.project-media-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Matches the size of the underlying photo */
+    height: 100%; /* Matches the size of the underlying photo */
+    z-index: 1; /* Ensures it is on top */
+	box-sizing: border-box;
+	pointer-events: none;
 }
 
 /* Ensure media takes full height */
 .media-container img,
 .media-container video {
 	width: 100%;
-	/* height: ; */
 }
 
 .media-container img:hover {

@@ -1,9 +1,11 @@
 // Play video and hide image
 function playVideo(projectName) {
 	const video = document.querySelector(`video[data-project="${projectName}"]`);
-	const image = document.querySelector(`img[data-project="${projectName}"]`);
+	const image = document.querySelector(`img[data-project="${projectName}"].project-media`);
+	const overlay = document.querySelector(`img[data-project="${projectName}"].project-media-overlay`);
   
 	image.style.display = 'none';
+	overlay.style.display = 'none';
 	video.style.display = 'block';
 	video.play();
 }
@@ -11,10 +13,13 @@ function playVideo(projectName) {
 // Handle video end
 function handleVideoEnd(projectName) {
 	const video = document.querySelector(`video[data-project="${projectName}"]`);
-	const image = document.querySelector(`img[data-project="${projectName}"]`);
+	const image = document.querySelector(`img[data-project="${projectName}"].project-media`);
+	const overlay = document.querySelector(`img[data-project="${projectName}"].project-media-overlay`);
+
 
 	video.style.display = 'none';
 	image.style.display = 'block';
+	overlay.style.display = 'block';
 }
 
 const urlMap = {
