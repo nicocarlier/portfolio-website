@@ -15,25 +15,28 @@
 
 /* Styles for project description */
 .project-description {
-width: 70vw;
-padding: 1rem;
+	width: 100%;
+	padding: 1rem;
 }
 
 /* hide the videos initially */
 .media-container video {
 	display: none;
+	/* height: 100%;
+	width: auto; */
 }
 
 /* Styles for media container */
 .media-container {
-height: 50vh;
+/* height: 50vh; */
 border-radius: 4px;
 }
 
 /* Ensure media takes full height */
 .media-container img,
 .media-container video {
-	height: 100%;
+	width: 100%;
+	/* height: ; */
 }
 
 .media-container img:hover {
@@ -48,13 +51,21 @@ margin-bottom: 0;
 /* Styles for action buttons */
 .action-buttons {
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 width: 100%;
 margin-bottom: 1.5rem;
 }
 
 #first-resume-download {
 	margin: 1rem 0;
+}
+
+/* projects */
+@media screen and (max-width: 640px) {
+	.action-buttons :nth-child(3) {
+		/* width: 100%; */
+		display: none;
+	}
 }
 
 /* profile pic */
