@@ -4,6 +4,44 @@
 
 /* ! some of the new styles from me */
 
+/* prevent code section from becomming too wide */
+pre {
+    max-width: 100%;        /* Ensures pre tag doesn't exceed parent width */
+    overflow-x: auto;       /* Adds horizontal scrollbar if content overflows */
+    white-space: pre-wrap;  /* Wraps content within pre tag */
+    word-wrap: break-word;  /* Breaks long words */
+}
+code {
+    white-space: pre-wrap;  /* Wraps content within code tag */
+}
+
+
+/* fixing the weird container alignmeent stuff */
+
+#one.main, #two.main, #three.main, #four.main, #five.main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+body .container {
+	margin: 0;
+	padding: 4em;
+	width: 100%;
+}
+
+
+@media screen and (max-width: 980px) {
+	body .container {
+		padding: 0;
+	}
+}
+/* @media screen and (max-width: 600px) {
+	body .container {
+		padding: 1em;
+	}
+} */
+
+
 /* Common styles for all projects */
 #Fairbnb, #Tubify, #RepsNRecipes {
 	display: flex;
@@ -103,7 +141,7 @@
 
 	#one .col-6.col-12-medium.imp-medium {
 		width: 100%;
-		height: 40%;
+		/* height: 40%; */
 	}
 	#one .col-6.col-12-medium > p {
 		text-align: start;
@@ -115,7 +153,10 @@
 	#one .image.fit,
 	#one .below-image-bullets {
 		margin: 1.5em;
+		width: 250px;
+		height: 250px;
 	}
+
 	#one .below-image-bullets>p {
 		display: flex;
 		flex-direction: column;
@@ -129,8 +170,9 @@
 		object-fit: contain;
 	}
 	#one .sticky-profile-image-contaner{
+		justify-content: space-evenly;
 		display: flex;
-		max-height: 20em;
+		height: 20em;
 	}
 }
 @media screen and (max-width: 600px) {
@@ -143,7 +185,7 @@
 /* ! skills section */
 
 /* skills resize on phone */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 940px) {
     .row.gtr-150.skills {
         display: flex;
         flex-direction: column;
@@ -166,6 +208,8 @@
         margin: 0.5rem;
         flex-shrink: 1;
         position: relative;
+		min-width: 80px;
+		max-height: 40px;
     }
     .image.fit.skill img {
         object-fit: contain;
@@ -175,9 +219,10 @@
 		height: 100%;
     }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 940px) {
 	.row.gtr-150.skills {
 		display: flex;
+		
 	}
 	.skills-worded {
 		width: 30%;
@@ -198,6 +243,7 @@
 		flex-shrink: 0;
 		position: relative;
 		overflow: hidden;
+		min-width: 80px;
 	}
 	.image.fit.skill img {
 		object-fit: contain; /* This will make sure the image covers the square */
@@ -696,7 +742,7 @@ input, select, textarea {
 		}
 
 			.row > * {
-				padding: 0 0 0 2em;
+				/* padding: 0 0 0 2em; */
 			}
 
 			.row.gtr-uniform {
@@ -711,12 +757,12 @@ input, select, textarea {
 
 		.row.gtr-150 {
 			margin-top: 0;
-			margin-left: -3em;
+			/* margin-left: -3em; */
 		}
-
+/* 
 			.row.gtr-150 > * {
 				padding: 0 0 0 3em;
-			}
+			} */
 
 			.row.gtr-150.gtr-uniform {
 				margin-top: -3em;
@@ -954,12 +1000,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
@@ -1199,12 +1245,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
@@ -1444,12 +1490,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
@@ -1689,12 +1735,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
@@ -1934,12 +1980,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
@@ -2179,12 +2225,12 @@ input, select, textarea {
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					/* margin-left: -3em; */
 				}
 
-					.row.gtr-150 > * {
+					/* .row.gtr-150 > * {
 						padding: 0 0 0 3em;
-					}
+					} */
 
 					.row.gtr-150.gtr-uniform {
 						margin-top: -3em;
