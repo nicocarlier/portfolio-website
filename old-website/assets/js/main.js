@@ -66,11 +66,11 @@ function handleVideoPlayPause(projectName) {
 const urlMap = {
 	Fairbnb: {
 		liveSite: 'https://fairbnb-36c07c3f3067.herokuapp.com/',
-		seeCode: 'https://github.com/ncar285/Fairbnb'
+		seeCode: 'https://github.com/nicocarlier/Fairbnb'
 	},
 	Tubify: {
 		liveSite: 'https://ncar285.github.io/Tubify/',
-		seeCode: 'https://github.com/ncar285/Tubify'
+		seeCode: 'https://github.com/nicocarlier/Tubify'
 	},
 	RepsNRecipes: {
 		liveSite: 'https://reps-n-recipes-d98cf03910d0.herokuapp.com/',
